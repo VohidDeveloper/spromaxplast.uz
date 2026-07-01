@@ -9,25 +9,106 @@ PVC dekorativ panel ishlab chiqaruvchi **S PROMAX PLAST** kompaniyasining korpor
 | Frontend | Vue 3, Vite 5, Tailwind CSS v3, Vue Router 4, Pinia 2, vue-i18n |
 | Admin panel | Vue 3, Vite 5, Tailwind CSS v3 |
 | Backend | Node.js, Express.js, PostgreSQL, JWT, multer |
+| Deployment | Docker, Docker Compose, Nginx |
 
 ## Loyiha tuzilmasi
 
 ```
-site/
-├── frontend/   # Asosiy sayt (port 5173)
-├── admin/      # Admin panel (port 5174)
-└── backend/    # REST API (port 3000)
+spromaxplast.uz/
+├── frontend/        # Asosiy sayt (Vue 3)
+├── admin/           # Admin panel (Vue 3)
+├── backend/         # REST API (Express.js)
+├── nginx/           # Reverse proxy konfiguratsiya
+├── docker-compose.yml
+├── .env.example     # Environment o'zgaruvchilar namunasi
+└── README.md
 ```
 
 ---
 
-## Local ishga tushirish
+## Production deployment (server)
+
+### Talablar
+
+- Docker 24+
+- Docker Compose v2+
+
+### 1. Reponi clone qilish
+
+```bash
+git clone https://github.com/VohidDeveloper/spromaxplast.uz.git
+cd spromaxplast.uz
+```
+
+### 2. Environment sozlash
+
+```bash
+cp .env.example .env
+nano .env
+```
+
+`.env` fayli:
+
+```env
+DB_NAME=spromax_db
+DB_USER=spromax_user
+DB_PASSWORD=kuchli_parol_yozing
+
+JWT_SECRET=kamida_32_belgili_uzun_tasodifiy_kalit
+
+CORS_ORIGIN=https://spromaxplast.uz
+
+PORT=8934
+```
+
+### 3. Ishga tushirish
+
+```bash
+docker compose up -d --build
+```
+
+Shu bitta command bilan hammasi ishga tushadi:
+- PostgreSQL (ichki, port 5432)
+- Backend API (ichki, port 3000)
+- Frontend (ichki, port 80)
+- Admin panel (ichki, port 80)
+- Nginx (tashqariga ochiq, port 8934)
+
+### Sayt manzillari
+
+| Xizmat | URL |
+|--------|-----|
+| Asosiy sayt | `http://spromaxplast.uz:8934` |
+| Admin panel | `http://spromaxplast.uz:8934/admin/` |
+| API | `http://spromaxplast.uz:8934/api/` |
+
+### Foydali Docker commandlar
+
+```bash
+# Loglarni ko'rish
+docker compose logs -f
+
+# Faqat backend logi
+docker compose logs -f backend
+
+# To'xtatish
+docker compose down
+
+# Ma'lumotlar bilan birga o'chirish (ehtiyot bo'l!)
+docker compose down -v
+
+# Qayta build (kod yangilanganda)
+git pull && docker compose up -d --build
+```
+
+---
+
+## Local development
 
 ### Talablar
 
 - Node.js 18+
 - PostgreSQL 14+
-- npm
 
 ### 1. PostgreSQL bazasini yaratish
 
@@ -36,40 +117,32 @@ createdb spromax_db
 psql spromax_db < backend/src/database/schema.sql
 ```
 
-### 2. Backend sozlash
+### 2. Backend
 
 ```bash
 cd backend
-cp .env.example .env
-# .env faylini to'ldiring:
-# DB_USER, DB_PASSWORD, DB_NAME, JWT_SECRET
+cp .env.example .env   # DB va JWT sozlamalarini to'ldiring
 npm install
-node server.js
+node server.js         # http://localhost:3000
 ```
 
-Backend `http://localhost:3000` da ishga tushadi.
-
-### 3. Frontend ishga tushirish
+### 3. Frontend
 
 ```bash
 cd frontend
 npm install
-npm run dev
+npm run dev            # http://localhost:5173
 ```
 
-Sayt `http://localhost:5173` da ochiladi.
-
-### 4. Admin panel ishga tushirish
+### 4. Admin panel
 
 ```bash
 cd admin
 npm install
-npm run dev
+npm run dev            # http://localhost:5174
 ```
 
-Admin panel `http://localhost:5174` da ochiladi.
-
-### Admin kirish ma'lumotlari
+### Admin kirish
 
 | | |
 |--|--|
@@ -78,7 +151,7 @@ Admin panel `http://localhost:5174` da ochiladi.
 
 ---
 
-## API Endpointlar
+## API endpointlar
 
 ```
 GET  /api/products        — Mahsulotlar ro'yxati
@@ -92,95 +165,10 @@ GET  /api/settings        — Sayt sozlamalari
 POST /api/contacts        — Murojaat yuborish
 POST /api/auth/login      — Admin login
 
-# Auth talab qiladigan endpointlar (Bearer token):
+# JWT token talab qiladiganlar:
 POST /api/upload/image    — Rasm yuklash
 PUT  /api/settings/:key   — Sozlamani yangilash
-GET  /api/contacts        — Murojaatlar ro'yxati
-```
-
----
-
-## Deployment
-
-### 1. Build qilish
-
-```bash
-# Frontend
-cd frontend && npm run build
-# Natija: frontend/dist/
-
-# Admin
-cd admin && npm run build
-# Natija: admin/dist/
-```
-
-### 2. Nginx konfiguratsiya
-
-```nginx
-# /etc/nginx/sites-available/spromax
-
-server {
-    listen 80;
-    server_name spromax.uz www.spromax.uz;
-
-    # Asosiy sayt
-    root /var/www/spromax/frontend/dist;
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-
-    # Admin panel
-    location /admin {
-        alias /var/www/spromax/admin/dist;
-        try_files $uri $uri/ /admin/index.html;
-    }
-
-    # Backend API
-    location /api {
-        proxy_pass http://localhost:3000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-
-    # Yuklangan fayllar
-    location /uploads {
-        proxy_pass http://localhost:3000;
-    }
-}
-```
-
-### 3. Backend production rejimda
-
-```bash
-cd backend
-NODE_ENV=production node server.js
-
-# Yoki PM2 bilan:
-npm install -g pm2
-pm2 start server.js --name spromax-backend
-pm2 save
-pm2 startup
-```
-
-### 4. .env production sozlamalari
-
-```env
-PORT=3000
-NODE_ENV=production
-
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=spromax_db
-DB_USER=your_db_user
-DB_PASSWORD=your_db_password
-
-JWT_SECRET=your_very_long_secret_key
-JWT_EXPIRES_IN=24h
-
-CORS_ORIGIN=https://spromax.uz,https://www.spromax.uz
-UPLOAD_PATH=uploads
+GET  /api/contacts        — Murojaatlar (admin)
 ```
 
 ---
