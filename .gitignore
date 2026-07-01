@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+
+# Environment variables (MAXFIY — commit qilma!)
+.env
+**/.env
+.env.local
+.env.production
+
+# Uploads (foydalanuvchi fayllari)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+
+# PostgreSQL local
+*.sql.bak

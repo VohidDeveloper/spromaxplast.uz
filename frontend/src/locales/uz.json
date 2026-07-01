@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "products": "Mahsulotlar",
+    "news": "Yangiliklar",
+    "process": "Ishlab chiqarish",
+    "certificates": "Sertifikatlar",
+    "partners": "Hamkorlar",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "badge": "O'zbekiston ishlab chiqarishi",
+    "title": "PVC Dekorativ Panel Ishlab Chiqarish",
+    "subtitle": "O'zbekistonda zamonaviy texnologiya bilan sifatli mahsulot",
+    "cta_primary": "Mahsulotlarni ko'rish",
+    "cta_secondary": "Biz bilan bog'laning"
+  },
+  "about": {
+    "title": "Biz haqimizda",
+    "subtitle": "S PROMAX PLAST — ishonchli ishlab chiqaruvchi",
+    "description": "Biz zamonaviy uskunalar va yuqori sifatli xom ashyodan foydalangan holda PVC dekorativ panellar ishlab chiqaramiz. Har bir mahsulotimiz sifat standartlariga to'liq javob beradi.",
+    "stats": {
+      "years": "Yillik tajriba",
+      "products": "Mahsulot turi",
+      "clients": "Mijozlar",
+      "employees": "Xodimlar"
+    }
+  },
+  "products": {
+    "title": "Mahsulotlar katalogi",
+    "subtitle": "Keng assortiment — har qanday ehtiyoj uchun",
+    "view_all": "Barchasini ko'rish",
+    "details": "Batafsil"
+  },
+  "process": {
+    "title": "Ishlab chiqarish jarayoni",
+    "subtitle": "Xom ashyodan tayyor mahsulotgacha",
+    "steps": {
+      "material": "Xom ashyo",
+      "mixing": "Aralashtiish",
+      "extrusion": "Ekstruziya",
+      "cooling": "Sovutish",
+      "cutting": "Kesish",
+      "packing": "Qadoqlash"
+    }
+  },
+  "certificates": {
+    "title": "Sertifikatlar va sifat",
+    "subtitle": "Xalqaro standartlarga mos mahsulotlar"
+  },
+  "partners": {
+    "title": "Bizning hamkorlar",
+    "subtitle": "Ishonchli sheriklar bilan kuchli biznes"
+  },
+  "news": {
+    "title": "Yangiliklar",
+    "subtitle": "Kompaniya yangiliklari va e'lonlar",
+    "read_more": "Batafsil o'qish",
+    "back": "Yangiliklarga qaytish",
+    "empty": "Yangiliklar mavjud emas"
+  },
+  "contact": {
+    "title": "Biz bilan bog'laning",
+    "subtitle": "Savollaringizga tezkor javob beramiz",
+    "name": "Ismingiz",
+    "phone": "Telefon raqam",
+    "message": "Xabar",
+    "send": "Yuborish",
+    "address": "Manzil",
+    "email": "Elektron pochta",
+    "success": "Xabaringiz yuborildi! Tez orada bog'lanamiz.",
+    "error": "Xatolik yuz berdi. Qayta urinib ko'ring."
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan",
+    "made_in": "O'zbekistonda ishlab chiqarilgan"
+  }
+}

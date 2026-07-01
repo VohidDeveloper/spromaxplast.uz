@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "news": "News",
+    "process": "Production",
+    "certificates": "Certificates",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Made in Uzbekistan",
+    "title": "PVC Decorative Panel Manufacturing",
+    "subtitle": "Quality products using modern technology in Uzbekistan",
+    "cta_primary": "View Products",
+    "cta_secondary": "Contact Us"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "S PROMAX PLAST — a reliable manufacturer",
+    "description": "We manufacture decorative PVC panels using modern equipment and high-quality raw materials. Every product fully meets quality standards.",
+    "stats": {
+      "years": "Years of Experience",
+      "products": "Product Types",
+      "clients": "Clients",
+      "employees": "Employees"
+    }
+  },
+  "products": {
+    "title": "Product Catalog",
+    "subtitle": "Wide assortment — for any need",
+    "view_all": "View All",
+    "details": "Details"
+  },
+  "process": {
+    "title": "Production Process",
+    "subtitle": "From raw material to finished product",
+    "steps": {
+      "material": "Raw Material",
+      "mixing": "Mixing",
+      "extrusion": "Extrusion",
+      "cooling": "Cooling",
+      "cutting": "Cutting",
+      "packing": "Packaging"
+    }
+  },
+  "certificates": {
+    "title": "Certificates & Quality",
+    "subtitle": "Products compliant with international standards"
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "Strong business with reliable partners"
+  },
+  "news": {
+    "title": "News",
+    "subtitle": "Company news and announcements",
+    "read_more": "Read more",
+    "back": "Back to news",
+    "empty": "No news available"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We respond to your questions quickly",
+    "name": "Your Name",
+    "phone": "Phone Number",
+    "message": "Message",
+    "send": "Send",
+    "address": "Address",
+    "email": "Email",
+    "success": "Your message has been sent! We will contact you soon.",
+    "error": "An error occurred. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "made_in": "Made in Uzbekistan"
+  }
+}
