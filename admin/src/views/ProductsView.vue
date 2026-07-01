@@ -110,7 +110,7 @@
                   <button
                     @click="openModal(product)"
                     class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50
-                           rounded-lg transition-fast"
+                           rounded-lg transition-all duration-200"
                     title="Tahrirlash"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@
                   <button
                     @click="confirmDelete(product)"
                     class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light
-                           rounded-lg transition-fast"
+                           rounded-lg transition-all duration-200"
                     title="O'chirish"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,13 +148,13 @@
             @click="changePage(-1)"
             :disabled="offset === 0"
             class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40
-                   hover:bg-gray-50 transition-fast"
+                   hover:bg-gray-50 transition-all duration-200"
           >← Oldingi</button>
           <button
             @click="changePage(1)"
             :disabled="offset + limit >= total"
             class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40
-                   hover:bg-gray-50 transition-fast"
+                   hover:bg-gray-50 transition-all duration-200"
           >Keyingi →</button>
         </div>
       </div>
@@ -172,7 +172,7 @@
               {{ editingProduct ? 'Mahsulotni tahrirlash' : 'Yangi mahsulot' }}
             </h3>
             <button @click="closeModal"
-              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-fast">
+              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all duration-200">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -193,7 +193,7 @@
                 v-for="lang in langs"
                 :key="lang.code"
                 @click="activeLang = lang.code"
-                :class="['flex-1 py-1.5 text-sm font-medium rounded-md transition-fast',
+                :class="['flex-1 py-1.5 text-sm font-medium rounded-md transition-all duration-200',
                   activeLang === lang.code
                     ? 'bg-white text-gray-800 shadow-sm'
                     : 'text-gray-500 hover:text-gray-700']"
@@ -249,7 +249,7 @@
               <label class="form-label">Rasm</label>
               <div
                 class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center
-                       hover:border-primary transition-fast cursor-pointer"
+                       hover:border-primary transition-all duration-200 cursor-pointer"
                 @click="$refs.imageInput.click()"
               >
                 <img
@@ -516,22 +516,22 @@ onMounted(() => {
 <style scoped>
 .btn-primary {
   @apply flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-hover
-         text-white text-sm font-medium rounded-lg transition-fast
+         text-white text-sm font-medium rounded-lg transition-all duration-200
          disabled:opacity-60 disabled:cursor-not-allowed;
 }
 .btn-secondary {
   @apply px-4 py-2 border border-gray-200 text-gray-600 hover:bg-gray-50
-         text-sm font-medium rounded-lg transition-fast;
+         text-sm font-medium rounded-lg transition-all duration-200;
 }
 .btn-danger {
   @apply px-4 py-2 bg-primary hover:bg-primary-hover text-white
-         text-sm font-medium rounded-lg transition-fast
+         text-sm font-medium rounded-lg transition-all duration-200
          disabled:opacity-60 disabled:cursor-not-allowed;
 }
 .input-field {
   @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-sm
          focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-         transition-fast placeholder-gray-400;
+         transition-all duration-200 placeholder-gray-400;
 }
 .form-label {
   @apply block text-sm font-medium text-gray-700 mb-1.5;

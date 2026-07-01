@@ -18,7 +18,7 @@
     <!-- Filter tugmalar -->
     <div class="flex items-center gap-2 flex-wrap">
       <button v-for="f in filters" :key="f.value" @click="setFilter(f.value)"
-        :class="['px-4 py-2 text-sm font-medium rounded-lg transition-fast',
+        :class="['px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 ease-in-out',
           activeFilter === f.value
             ? 'bg-dark text-white'
             : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50']">
@@ -101,7 +101,7 @@
               <td>
                 <div class="flex items-center gap-1">
                   <button @click="openModal(item)"
-                    class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-fast"
+                    class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-150 ease-in-out"
                     title="Tahrirlash">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -110,7 +110,7 @@
                     </svg>
                   </button>
                   <button @click="confirmDelete(item)"
-                    class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light rounded-lg transition-fast"
+                    class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light rounded-lg transition-all duration-150 ease-in-out"
                     title="O'chirish">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -132,11 +132,11 @@
         </p>
         <div class="flex gap-2">
           <button @click="changePage(-1)" :disabled="offset === 0"
-            class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-fast">
+            class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-all duration-150 ease-in-out">
             ← Oldingi
           </button>
           <button @click="changePage(1)" :disabled="offset + limit >= total"
-            class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-fast">
+            class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-all duration-150 ease-in-out">
             Keyingi →
           </button>
         </div>
@@ -156,7 +156,7 @@
               {{ editing ? 'Yangilikni tahrirlash' : 'Yangi yangilik' }}
             </h3>
             <button @click="closeModal"
-              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-fast">
+              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all duration-150 ease-in-out">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -172,7 +172,7 @@
             <!-- Til tablari -->
             <div class="flex gap-1 bg-gray-100 rounded-lg p-1">
               <button v-for="lang in langs" :key="lang.code" @click="activeLang = lang.code"
-                :class="['flex-1 py-1.5 text-sm font-medium rounded-md transition-fast',
+                :class="['flex-1 py-1.5 text-sm font-medium rounded-md transition-all duration-150 ease-in-out',
                   activeLang === lang.code
                     ? 'bg-white text-gray-800 shadow-sm'
                     : 'text-gray-500 hover:text-gray-700']">
@@ -215,7 +215,7 @@
             <div>
               <label class="form-label">Rasm</label>
               <div class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center
-                          hover:border-primary transition-fast cursor-pointer"
+                          hover:border-primary transition-all duration-150 ease-in-out cursor-pointer"
                 @click="$refs.imageInput.click()">
                 <img v-if="imagePreview" :src="imagePreview"
                   class="max-h-40 mx-auto rounded-lg object-contain mb-2" />
@@ -284,7 +284,7 @@
             <button @click="deleteTarget = null" class="btn-secondary flex-1">Bekor qilish</button>
             <button @click="deleteNews" :disabled="deleting"
               class="flex-1 px-4 py-2 bg-primary hover:bg-primary-hover text-white
-                     text-sm font-medium rounded-lg transition-fast disabled:opacity-60">
+                     text-sm font-medium rounded-lg transition-all duration-150 ease-in-out disabled:opacity-60">
               {{ deleting ? 'O\'chirilmoqda...' : 'O\'chirish' }}
             </button>
           </div>
@@ -436,17 +436,17 @@ onMounted(fetchNews)
 <style scoped>
 .btn-primary {
   @apply flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-hover
-         text-white text-sm font-medium rounded-lg transition-fast
+         text-white text-sm font-medium rounded-lg transition-all duration-150 ease-in-out
          disabled:opacity-60 disabled:cursor-not-allowed;
 }
 .btn-secondary {
   @apply px-4 py-2 border border-gray-200 text-gray-600 hover:bg-gray-50
-         text-sm font-medium rounded-lg transition-fast;
+         text-sm font-medium rounded-lg transition-all duration-150 ease-in-out;
 }
 .input-field {
   @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-sm
          focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-         transition-fast placeholder-gray-400;
+         transition-all duration-150 ease-in-out placeholder-gray-400;
 }
 .form-label {
   @apply block text-sm font-medium text-gray-700 mb-1.5;

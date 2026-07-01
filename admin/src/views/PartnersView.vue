@@ -82,7 +82,7 @@
               <!-- Sayt -->
               <td class="hidden lg:table-cell">
                 <a v-if="partner.website" :href="partner.website" target="_blank"
-                  class="text-blue-500 hover:text-blue-700 text-sm truncate max-w-[160px] block transition-fast">
+                  class="text-blue-500 hover:text-blue-700 text-sm truncate max-w-[160px] block transition-all duration-150 ease-in-out">
                   {{ partner.website.replace(/^https?:\/\//, '') }}
                 </a>
                 <span v-else class="text-gray-400 text-sm">—</span>
@@ -101,7 +101,7 @@
               <td>
                 <div class="flex items-center gap-1">
                   <button @click="openModal(partner)"
-                    class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-fast"
+                    class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-150 ease-in-out"
                     title="Tahrirlash">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -110,7 +110,7 @@
                     </svg>
                   </button>
                   <button @click="confirmDelete(partner)"
-                    class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light rounded-lg transition-fast"
+                    class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light rounded-lg transition-all duration-150 ease-in-out"
                     title="O'chirish">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -139,7 +139,7 @@
               {{ editing ? 'Hamkorni tahrirlash' : 'Yangi hamkor' }}
             </h3>
             <button @click="closeModal"
-              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-fast">
+              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all duration-150 ease-in-out">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -185,7 +185,7 @@
             <div>
               <label class="form-label">Logo</label>
               <div class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center
-                          hover:border-primary transition-fast cursor-pointer"
+                          hover:border-primary transition-all duration-150 ease-in-out cursor-pointer"
                 @click="$refs.logoInput.click()">
                 <img v-if="logoPreview" :src="logoPreview"
                   class="max-h-28 max-w-[180px] mx-auto object-contain mb-2 rounded-lg" />
@@ -257,7 +257,7 @@
             <button @click="deleteTarget = null" class="btn-secondary flex-1">Bekor qilish</button>
             <button @click="deletePartner" :disabled="deleting"
               class="flex-1 px-4 py-2 bg-primary hover:bg-primary-hover text-white
-                     text-sm font-medium rounded-lg transition-fast disabled:opacity-60">
+                     text-sm font-medium rounded-lg transition-all duration-150 ease-in-out disabled:opacity-60">
               {{ deleting ? 'O\'chirilmoqda...' : 'O\'chirish' }}
             </button>
           </div>
@@ -391,17 +391,17 @@ onMounted(fetchPartners)
 <style scoped>
 .btn-primary {
   @apply flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-hover
-         text-white text-sm font-medium rounded-lg transition-fast
+         text-white text-sm font-medium rounded-lg transition-all duration-150 ease-in-out
          disabled:opacity-60 disabled:cursor-not-allowed;
 }
 .btn-secondary {
   @apply px-4 py-2 border border-gray-200 text-gray-600 hover:bg-gray-50
-         text-sm font-medium rounded-lg transition-fast;
+         text-sm font-medium rounded-lg transition-all duration-150 ease-in-out;
 }
 .input-field {
   @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-sm
          focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-         transition-fast placeholder-gray-400;
+         transition-all duration-150 ease-in-out placeholder-gray-400;
 }
 .form-label {
   @apply block text-sm font-medium text-gray-700 mb-1.5;

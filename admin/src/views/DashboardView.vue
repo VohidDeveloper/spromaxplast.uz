@@ -49,7 +49,7 @@
         <h3 class="font-heading font-semibold text-gray-800">So'nggi xabarlar</h3>
         <button
           @click="$router.push('/messages')"
-          class="text-sm text-primary hover:text-primary-hover font-medium transition-fast"
+          class="text-sm text-primary hover:text-primary-hover font-medium transition-all duration-150 ease-in-out"
         >
           Barchasi →
         </button>

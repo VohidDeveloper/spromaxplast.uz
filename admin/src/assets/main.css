@@ -108,7 +108,7 @@
 
 @layer utilities {
   /* Tez o'tish effektlari */
-  .transition-fast {
+  .transition-all duration-150 ease-in-out {
     @apply transition-all duration-150 ease-in-out;
   }
 

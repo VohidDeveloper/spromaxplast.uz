@@ -42,7 +42,7 @@
               required
               class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-                     transition-fast placeholder-gray-400"
+                     transition-all duration-150 ease-in-out placeholder-gray-400"
             />
           </div>
 
@@ -58,14 +58,14 @@
                 required
                 class="w-full px-4 py-2.5 pr-11 border border-gray-300 rounded-lg text-sm
                        focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-                       transition-fast placeholder-gray-400"
+                       transition-all duration-150 ease-in-out placeholder-gray-400"
               />
               <!-- Ko'rish/yashirish toggle -->
               <button
                 type="button"
                 @click="showPassword = !showPassword"
                 class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400
-                       hover:text-gray-600 transition-fast"
+                       hover:text-gray-600 transition-all duration-150 ease-in-out"
               >
                 <!-- Ko'z ochiq -->
                 <svg v-if="!showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,7 +94,7 @@
             type="submit"
             :disabled="loading"
             class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover
-                   text-white font-medium py-2.5 rounded-lg transition-fast
+                   text-white font-medium py-2.5 rounded-lg transition-all duration-150 ease-in-out
                    disabled:opacity-60 disabled:cursor-not-allowed"
           >
             <!-- Loading spinner -->

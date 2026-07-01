@@ -71,7 +71,7 @@
         @click="handleLogout"
         class="flex items-center gap-3 w-full px-4 py-2.5 rounded-lg
                text-gray-300 hover:text-white hover:bg-red-600/20
-               transition-fast text-sm font-medium"
+               transition-all duration-150 ease-in-out text-sm font-medium"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

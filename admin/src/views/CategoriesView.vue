@@ -71,7 +71,7 @@
               <td>
                 <div class="flex items-center gap-1">
                   <button @click="openModal(cat)"
-                    class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-fast"
+                    class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-150 ease-in-out"
                     title="Tahrirlash">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -80,7 +80,7 @@
                     </svg>
                   </button>
                   <button @click="confirmDelete(cat)"
-                    class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light rounded-lg transition-fast"
+                    class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light rounded-lg transition-all duration-150 ease-in-out"
                     title="O'chirish">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -109,7 +109,7 @@
               {{ editing ? 'Kategoriyani tahrirlash' : 'Yangi kategoriya' }}
             </h3>
             <button @click="closeModal"
-              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-fast">
+              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all duration-150 ease-in-out">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -163,7 +163,7 @@
                   type="button"
                   @click="generateSlug"
                   class="absolute right-2 top-1/2 -translate-y-1/2 text-xs px-2 py-1
-                         bg-gray-100 hover:bg-gray-200 text-gray-600 rounded transition-fast"
+                         bg-gray-100 hover:bg-gray-200 text-gray-600 rounded transition-all duration-150 ease-in-out"
                 >
                   Yaratish
                 </button>
@@ -223,7 +223,7 @@
               <button @click="deleteTarget = null" class="btn-secondary flex-1">Bekor qilish</button>
               <button @click="deleteCategory" :disabled="deleting"
                 class="flex-1 px-4 py-2 bg-primary hover:bg-primary-hover text-white
-                       text-sm font-medium rounded-lg transition-fast disabled:opacity-60">
+                       text-sm font-medium rounded-lg transition-all duration-150 ease-in-out disabled:opacity-60">
                 {{ deleting ? 'O\'chirilmoqda...' : 'O\'chirish' }}
               </button>
             </div>
@@ -348,17 +348,17 @@ onMounted(fetchCategories)
 <style scoped>
 .btn-primary {
   @apply flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-hover
-         text-white text-sm font-medium rounded-lg transition-fast
+         text-white text-sm font-medium rounded-lg transition-all duration-150 ease-in-out
          disabled:opacity-60 disabled:cursor-not-allowed;
 }
 .btn-secondary {
   @apply px-4 py-2 border border-gray-200 text-gray-600 hover:bg-gray-50
-         text-sm font-medium rounded-lg transition-fast;
+         text-sm font-medium rounded-lg transition-all duration-150 ease-in-out;
 }
 .input-field {
   @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-sm
          focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-         transition-fast placeholder-gray-400;
+         transition-all duration-150 ease-in-out placeholder-gray-400;
 }
 .form-label {
   @apply block text-sm font-medium text-gray-700 mb-1.5;

@@ -11,7 +11,7 @@
       <div class="flex items-center gap-2 self-start sm:self-auto">
         <button
           @click="setFilter('all')"
-          :class="['px-4 py-2 text-sm font-medium rounded-lg transition-fast',
+          :class="['px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 ease-in-out',
             activeFilter === 'all'
               ? 'bg-dark text-white'
               : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50']"
@@ -20,7 +20,7 @@
         </button>
         <button
           @click="setFilter('unread')"
-          :class="['flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-fast',
+          :class="['flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 ease-in-out',
             activeFilter === 'unread'
               ? 'bg-primary text-white'
               : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50']"
@@ -120,7 +120,7 @@
                     v-if="!msg.is_read"
                     @click="markRead(msg)"
                     class="p-1.5 text-gray-400 hover:text-secondary hover:bg-secondary-light
-                           rounded-lg transition-fast"
+                           rounded-lg transition-all duration-150 ease-in-out"
                     title="O'qildi belgilash"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,7 +131,7 @@
                   <button
                     @click="confirmDelete(msg)"
                     class="p-1.5 text-gray-400 hover:text-primary hover:bg-primary-light
-                           rounded-lg transition-fast"
+                           rounded-lg transition-all duration-150 ease-in-out"
                     title="O'chirish"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,12 +155,12 @@
         <div class="flex gap-2">
           <button @click="changePage(-1)" :disabled="offset === 0"
             class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg
-                   disabled:opacity-40 hover:bg-gray-50 transition-fast">
+                   disabled:opacity-40 hover:bg-gray-50 transition-all duration-150 ease-in-out">
             ← Oldingi
           </button>
           <button @click="changePage(1)" :disabled="offset + limit >= total"
             class="px-3 py-1.5 text-sm border border-gray-200 rounded-lg
-                   disabled:opacity-40 hover:bg-gray-50 transition-fast">
+                   disabled:opacity-40 hover:bg-gray-50 transition-all duration-150 ease-in-out">
             Keyingi →
           </button>
         </div>
@@ -184,7 +184,7 @@
               </span>
             </div>
             <button @click="selectedMsg = null"
-              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-fast">
+              class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all duration-150 ease-in-out">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -230,7 +230,7 @@
             <button
               @click="confirmDelete(selectedMsg)"
               class="flex items-center gap-2 px-4 py-2 text-primary border border-primary-light
-                     hover:bg-primary-light rounded-lg text-sm font-medium transition-fast"
+                     hover:bg-primary-light rounded-lg text-sm font-medium transition-all duration-150 ease-in-out"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -244,7 +244,7 @@
               @click="markRead(selectedMsg)"
               :disabled="marking"
               class="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary-hover
-                     text-white rounded-lg text-sm font-medium transition-fast
+                     text-white rounded-lg text-sm font-medium transition-all duration-150 ease-in-out
                      disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -276,12 +276,12 @@
           <div class="flex gap-3">
             <button @click="deleteTarget = null"
               class="flex-1 px-4 py-2 border border-gray-200 text-gray-600 hover:bg-gray-50
-                     text-sm font-medium rounded-lg transition-fast">
+                     text-sm font-medium rounded-lg transition-all duration-150 ease-in-out">
               Bekor qilish
             </button>
             <button @click="deleteMessage" :disabled="deleting"
               class="flex-1 px-4 py-2 bg-primary hover:bg-primary-hover text-white
-                     text-sm font-medium rounded-lg transition-fast disabled:opacity-60">
+                     text-sm font-medium rounded-lg transition-all duration-150 ease-in-out disabled:opacity-60">
               {{ deleting ? 'O\'chirilmoqda...' : 'O\'chirish' }}
             </button>
           </div>

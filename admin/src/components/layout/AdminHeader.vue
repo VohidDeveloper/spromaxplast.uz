@@ -7,7 +7,7 @@
         <button
           @click="$emit('toggle-sidebar')"
           class="lg:hidden p-2 rounded-lg text-gray-500 hover:text-gray-700
-                 hover:bg-gray-100 transition-fast"
+                 hover:bg-gray-100 transition-all duration-150 ease-in-out"
           aria-label="Menyuni ochish"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,7 +28,7 @@
         <button
           @click="$router.push('/messages')"
           class="relative p-2 rounded-lg text-gray-500 hover:text-gray-700
-                 hover:bg-gray-100 transition-fast"
+                 hover:bg-gray-100 transition-all duration-150 ease-in-out"
           aria-label="Xabarlar"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
