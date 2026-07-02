@@ -14,26 +14,22 @@ export async function getSettings(_req, res, next) {
   }
 }
 
-// PUT /api/settings/:key — yangilash (faqat auth bilan)
+// PUT /api/settings/:key — yangilash yoki yaratish (UPSERT)
 export async function updateSetting(req, res, next) {
   try {
     const { key } = req.params
     const { value_uz, value_ru, value_en } = req.body
 
-    const existing = await db.query(
-      'SELECT key FROM settings WHERE key = $1',
-      [key]
-    )
-    if (!existing.rows[0]) {
-      return res.status(404).json({ success: false, message: 'Sozlama topilmadi' })
-    }
-
     const { rows } = await db.query(
-      `UPDATE settings
-       SET value_uz = $1, value_ru = $2, value_en = $3, updated_at = NOW()
-       WHERE key = $4
+      `INSERT INTO settings (key, value_uz, value_ru, value_en, updated_at)
+       VALUES ($1, $2, $3, $4, NOW())
+       ON CONFLICT (key) DO UPDATE
+         SET value_uz   = EXCLUDED.value_uz,
+             value_ru   = EXCLUDED.value_ru,
+             value_en   = EXCLUDED.value_en,
+             updated_at = NOW()
        RETURNING *`,
-      [value_uz, value_ru, value_en, key]
+      [key, value_uz, value_ru, value_en]
     )
 
     res.json({ success: true, data: rows[0] })
